@@ -22,22 +22,22 @@
     <ClInclude Include="wxWidgetsApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ticTacToe.h">
-      <Filter>wxFormBuilder Files</Filter>
-    </ClInclude>
     <ClInclude Include="SubGUIClass.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIClass.h">
+      <Filter>wxFormBuilder Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wxWidgetsApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ticTacToe.cpp">
-      <Filter>wxFormBuilder Files</Filter>
-    </ClCompile>
     <ClCompile Include="SubGUIClass.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIClass.cpp">
+      <Filter>wxFormBuilder Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -11,13 +11,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GUIClass.h" />
     <ClInclude Include="SubGUIClass.h" />
-    <ClInclude Include="ticTacToe.h" />
     <ClInclude Include="wxWidgetsApp.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GUIClass.cpp" />
     <ClCompile Include="SubGUIClass.cpp" />
-    <ClCompile Include="ticTacToe.cpp" />
     <ClCompile Include="wxWidgetsApp.cpp" />
   </ItemGroup>
   <ItemGroup>

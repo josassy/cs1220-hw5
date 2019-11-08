@@ -8,10 +8,12 @@
 #include <wx/wx.h>
 
 class wxWidgetsApp : public wxApp {
-  public:
-    wxWidgetsApp();
-    virtual ~wxWidgetsApp();
-    virtual bool OnInit();
+public:
+  wxWidgetsApp();
+  virtual ~wxWidgetsApp();
+  virtual bool OnInit();
+private:
+  int board[9];
 };
 
 DECLARE_APP(wxWidgetsApp)
