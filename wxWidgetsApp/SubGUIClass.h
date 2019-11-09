@@ -1,3 +1,12 @@
+/*******************************************************************************
+* File:       SubGUIClass.h
+* Name:       Josiah Lansford
+* Date:       8 November 2019
+* Assignment: HW5
+* Purpose:    SubGUIClass inheriting from auto-generated wxWidgets GUIClass.
+*             Contains handler functions and game logic for Tic Tac Toe.
+*******************************************************************************/
+
 #ifndef __SubGUIClass__
 #define __SubGUIClass__
 
@@ -24,21 +33,19 @@ class SubGUIClass : public GUIClass
     // Remember if it is Orange or Blue's turn
     bool isBlueTurn;
 
-    // Remember if game is over so you don't have to check again
+    // Remember if game is over so we don't have to check again
     bool gameOver;
 
-    void updateGame();
+    void updateStatusBar();
     bool isGameOver();
     void resetGame();
     void endGame();
-    void confirmExit();
         
 	protected:
 		// Handlers for GUIClass events.
 		void onButtonClick( wxCommandEvent& event );
 		void onResetEvent( wxCommandEvent& event );
 		void onExitEvent( wxCommandEvent& event );
-		void onResetClick( wxCommandEvent& event );
     void OnClose(wxCloseEvent& event );
 
 	public:

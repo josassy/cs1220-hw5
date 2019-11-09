@@ -1,3 +1,12 @@
+/*******************************************************************************
+* File:       SubGUIClass.cpp
+* Name:       Josiah Lansford
+* Date:       8 November 2019
+* Assignment: HW5
+* Purpose:    SubGUIClass inheriting from auto-generated wxWidgets GUIClass.
+*             Contains handler functions and game logic for Tic Tac Toe.
+*******************************************************************************/
+
 #include "SubGUIClass.h"
 
 SubGUIClass::SubGUIClass( wxWindow* parent )
@@ -53,8 +62,15 @@ void SubGUIClass::onButtonClick( wxCommandEvent& event )
     gameBoard[num] = 4;
     b->SetBackgroundColour(wxColor(L"orange"));
   }
+  
+  // check if game is over
+  if (isGameOver()) {
+    endGame();
+  }
 
-  updateGame();
+  // change turn
+  isBlueTurn = !isBlueTurn;
+  updateStatusBar();
 }
 
 // reset all game variables
@@ -80,17 +96,11 @@ void SubGUIClass::OnClose(wxCloseEvent& event)
   Destroy();
 }
 
-// Update game attributes after button click, and check for game end
-// Called by onButtonClick handler
-void SubGUIClass::updateGame()
+// Update text in status bar based on turn
+void SubGUIClass::updateStatusBar()
 {
   // set status bar text based on turn
   statusBar->SetStatusText(isBlueTurn ? L"Blue's Turn" : L"Orange's Turn");
-  if (isGameOver()) {
-    endGame();
-  }
-  // change turn
-  isBlueTurn = !isBlueTurn;
 }
 
 // Determine if game is over
@@ -138,6 +148,7 @@ void SubGUIClass::resetGame()
   // Blue gets first turn
   isBlueTurn = true;
   gameOver = false;
+  updateStatusBar();
 }
 
 void SubGUIClass::endGame()
