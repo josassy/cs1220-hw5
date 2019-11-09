@@ -7,8 +7,8 @@
 //     built using the Tools ... Generate Inherited Class (F6)
 // 2.  Define CLASSNAME to be the name of the class defined in FILENAME
 
-#define FILENAME  "GUIClass.h"
-#define CLASSNAME  GUIClass
+#define FILENAME  "SubGUIClass.h"
+#define CLASSNAME  SubGUIClass
 
 #include "wxWidgetsApp.h"
 #include FILENAME

@@ -10,18 +10,17 @@
 
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
-#include <wx/bitmap.h>
-#include <wx/image.h>
-#include <wx/icon.h>
-#include <wx/bmpbuttn.h>
 #include <wx/string.h>
+#include <wx/button.h>
 #include <wx/gdicmn.h>
 #include <wx/font.h>
 #include <wx/colour.h>
 #include <wx/settings.h>
-#include <wx/button.h>
 #include <wx/sizer.h>
 #include <wx/panel.h>
+#include <wx/bitmap.h>
+#include <wx/image.h>
+#include <wx/icon.h>
 #include <wx/menu.h>
 #include <wx/statusbr.h>
 #include <wx/frame.h>
@@ -38,20 +37,26 @@ class GUIClass : public wxFrame
 	
 	protected:
 		wxPanel* basePanel;
-		wxBitmapButton* button0;
-		wxBitmapButton* button1;
-		wxBitmapButton* button2;
-		wxBitmapButton* button3;
-		wxBitmapButton* button4;
-		wxBitmapButton* button5;
-		wxBitmapButton* button6;
-		wxBitmapButton* button7;
-		wxBitmapButton* button8;
+		wxButton* button0;
+		wxButton* button1;
+		wxButton* button2;
+		wxButton* button3;
+		wxButton* button4;
+		wxButton* button5;
+		wxButton* button6;
+		wxButton* button7;
+		wxButton* button8;
 		wxButton* resetButton;
 		wxButton* exitButton;
 		wxMenuBar* menuBar;
 		wxMenu* fileMenu;
-		wxStatusBar* m_statusBar1;
+		wxStatusBar* statusBar;
+		
+		// Virtual event handlers, overide them in your derived class
+		virtual void onButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void onResetEvent( wxCommandEvent& event ) { event.Skip(); }
+		virtual void onExitEvent( wxCommandEvent& event ) { event.Skip(); }
+		
 	
 	public:
 		
