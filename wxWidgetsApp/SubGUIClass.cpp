@@ -27,6 +27,11 @@ GUIClass( parent )
 
 void SubGUIClass::onButtonClick( wxCommandEvent& event )
 {
+  // If game is over, ignore button clicks
+  if (gameOver) {
+    return;
+  }
+
   // Get button that was clicked
   wxButton* b = (wxButton*)event.GetEventObject();
   
@@ -60,12 +65,19 @@ void SubGUIClass::onResetEvent( wxCommandEvent& event )
 
 void SubGUIClass::onExitEvent( wxCommandEvent& event )
 {
+  Close();
+}
+
+void SubGUIClass::OnClose(wxCloseEvent& event)
+{
   wxMessageDialog *d = new wxMessageDialog(
     this, L"Do you want to exit?", L"Confirm Exit", wxYES | wxNO | wxYES_DEFAULT);
   int answer = d->ShowModal();
-  if (answer == wxID_YES) {
-    Close();
+  if (answer != wxID_YES) {
+    event.Veto();
+    return;
   }
+  Destroy();
 }
 
 // Update game attributes after button click, and check for game end
@@ -125,10 +137,12 @@ void SubGUIClass::resetGame()
 
   // Blue gets first turn
   isBlueTurn = true;
+  gameOver = false;
 }
 
 void SubGUIClass::endGame()
 {
+  gameOver = true;
   wxString winner = isBlueTurn ? L"Blue" : L"Orange";
   wxString gameStatus = L"Game is over. " + winner + L" wins.";
   statusBar->SetStatusText(gameStatus);
@@ -141,16 +155,6 @@ void SubGUIClass::endGame()
     resetGame();
   }
   else {
-    confirmExit();
-  }
-}
-
-void SubGUIClass::confirmExit()
-{
-  wxMessageDialog *d = new wxMessageDialog(
-    this, L"Do you want to exit?", L"Confirm Exit", wxYES | wxNO | wxYES_DEFAULT);
-  int answer = d->ShowModal();
-  if (answer == wxID_YES) {
     Close();
   }
 }

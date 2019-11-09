@@ -24,6 +24,9 @@ class SubGUIClass : public GUIClass
     // Remember if it is Orange or Blue's turn
     bool isBlueTurn;
 
+    // Remember if game is over so you don't have to check again
+    bool gameOver;
+
     void updateGame();
     bool isGameOver();
     void resetGame();
@@ -36,7 +39,7 @@ class SubGUIClass : public GUIClass
 		void onResetEvent( wxCommandEvent& event );
 		void onExitEvent( wxCommandEvent& event );
 		void onResetClick( wxCommandEvent& event );
-
+    void OnClose(wxCloseEvent& event );
 
 	public:
 		/** Constructor */

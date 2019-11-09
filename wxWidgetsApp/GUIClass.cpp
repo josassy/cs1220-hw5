@@ -107,6 +107,7 @@ GUIClass::GUIClass( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	this->Centre( wxBOTH );
 	
 	// Connect Events
+	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( GUIClass::OnClose ) );
 	button0->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIClass::onButtonClick ), NULL, this );
 	button1->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIClass::onButtonClick ), NULL, this );
 	button2->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIClass::onButtonClick ), NULL, this );
@@ -124,6 +125,7 @@ GUIClass::GUIClass( wxWindow* parent, wxWindowID id, const wxString& title, cons
 GUIClass::~GUIClass()
 {
 	// Disconnect Events
+	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( GUIClass::OnClose ) );
 	button0->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIClass::onButtonClick ), NULL, this );
 	button1->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIClass::onButtonClick ), NULL, this );
 	button2->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIClass::onButtonClick ), NULL, this );
